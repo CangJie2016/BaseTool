@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BaseTool.iml" filepath="$PROJECT_DIR$/BaseTool.iml" />
       <module fileurl="file://$PROJECT_DIR$/WuXiDriver.iml" filepath="$PROJECT_DIR$/WuXiDriver.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/basetool/basetool.iml" filepath="$PROJECT_DIR$/basetool/basetool.iml" />
       <module fileurl="file://$PROJECT_DIR$/basetool/basetool.iml" filepath="$PROJECT_DIR$/basetool/basetool.iml" />
     </modules>
   </component>

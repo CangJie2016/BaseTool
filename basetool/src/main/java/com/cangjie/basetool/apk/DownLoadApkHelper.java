@@ -6,6 +6,7 @@ import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
@@ -25,14 +26,6 @@ public class DownLoadApkHelper {
     private String url;
     private OnDownloadApkListener onDownloadApkListener;
 
-    /**
-     *
-     * @param downUrl FileDownloadUrl
-     * @param baseUrl serviceHostUrl
-     * @param downloadLocalPath  xxx/
-     * @param downloadLocalFileName  xxx.apk
-     * @param listener callback
-     */
     public DownLoadApkHelper(String downUrl, String baseUrl, String downloadLocalPath, String downloadLocalFileName, OnDownloadApkListener listener){
         url = downUrl;
         onDownloadApkListener = listener;
@@ -51,7 +44,7 @@ public class DownLoadApkHelper {
                         // 设置baseUrl{以"/"结尾}
                         .baseUrl(baseUrl);
         // Retrofit文件下载进度显示的解决方法
-        OkHttpClient.Builder builder = ProgressHelper.addProgress(null);
+        OkHttpClient.Builder builder = ProgressHelper.addProgress(null).connectTimeout(60, TimeUnit.SECONDS);
 
         ProgressHelper.setProgressHandler(new DownloadProgressHandler() {
 

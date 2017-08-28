@@ -12,7 +12,6 @@ import com.cangjie.basetool.utils.SpUtils;
 public class BasePresenter<V extends BaseView> {
     public V mvpView;
     private Context mContext;
-    protected int httpCount;
 
     public BasePresenter(V mvpView, Context context) {
         this.mvpView = mvpView;
