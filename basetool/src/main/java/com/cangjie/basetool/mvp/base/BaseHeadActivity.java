@@ -35,6 +35,7 @@ public abstract class BaseHeadActivity extends BaseActivity {
     private FrameLayout fl_right_container;
     private ImageButton ib_base_head_right_button;
     private TextView tv_base_head_right_button;
+    private View view_divide_line;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,6 +138,8 @@ public abstract class BaseHeadActivity extends BaseActivity {
 
         mLoading = (RelativeLayout) findViewById(R.id.rel_base_loading);
         rel_base_headArea = (RelativeLayout) findViewById(R.id.rel_base_headArea);
+
+        view_divide_line = (View) findViewById(R.id.view_divide_line);
     }
 
     /**
@@ -154,5 +157,17 @@ public abstract class BaseHeadActivity extends BaseActivity {
         if (BaseToolStyle.TITLE_IS_BOLD){
             tv_headTitle.setTypeface(null, Typeface.BOLD);
         }
+    }
+
+    public void showDivideLine(){
+        view_divide_line.setVisibility(View.VISIBLE);
+    }
+    public void showDivideLine(int color){
+        view_divide_line.setBackgroundColor(color);
+        showDivideLine();
+    }
+
+    public void hideDivideLine(){
+        view_divide_line.setVisibility(View.GONE);
     }
 }

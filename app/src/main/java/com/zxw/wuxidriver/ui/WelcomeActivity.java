@@ -2,7 +2,8 @@ package com.zxw.wuxidriver.ui;
 
 import android.os.Bundle;
 
-import com.zxw.wuxidriver.ui.base.PresenterActivity;
+import com.cangjie.basetool.mvp.base.PresenterActivity;
+import com.zxw.wuxidriver.R;
 import com.zxw.wuxidriver.presenter.WelcomePresenter;
 import com.zxw.wuxidriver.presenter.view.WelcomeView;
 
