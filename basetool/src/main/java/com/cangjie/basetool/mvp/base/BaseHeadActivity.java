@@ -139,7 +139,7 @@ public abstract class BaseHeadActivity extends BaseActivity {
         mLoading = (RelativeLayout) findViewById(R.id.rel_base_loading);
         rel_base_headArea = (RelativeLayout) findViewById(R.id.rel_base_headArea);
 
-        view_divide_line = (View) findViewById(R.id.view_divide_line);
+        view_divide_line = findViewById(R.id.view_divide_line);
     }
 
     /**

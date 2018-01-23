@@ -22,6 +22,7 @@ import com.cangjie.basetool.utils.AnimationHelper;
 import com.cangjie.basetool.utils.ToastHelper;
 
 import static com.cangjie.basetool.R.id.iv_base_head_back;
+import static com.cangjie.basetool.R.id.view_divide_line;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,6 +44,7 @@ public class BaseHeadFragment extends BaseFragment {
     private ImageButton ib_base_head_right_button;
     private TextView tv_base_head_right_button;
 
+    private View view_divide_line;
     public BaseHeadFragment() {
         // Required empty public constructor
     }
@@ -72,6 +74,8 @@ public class BaseHeadFragment extends BaseFragment {
 
         mLoading = (RelativeLayout) baseView.findViewById(R.id.rel_base_loading);
         rel_base_headArea = (RelativeLayout) baseView.findViewById(R.id.rel_base_headArea);
+
+        view_divide_line = baseView.findViewById(R.id.view_divide_line);
     }
 
     public View setContentView(View view) {
@@ -159,5 +163,17 @@ public class BaseHeadFragment extends BaseFragment {
         if (BaseToolStyle.TITLE_IS_BOLD){
             tv_headTitle.setTypeface(null, Typeface.BOLD);
         }
+    }
+
+    public void showDivideLine(){
+        view_divide_line.setVisibility(View.VISIBLE);
+    }
+    public void showDivideLine(int color){
+        view_divide_line.setBackgroundColor(color);
+        showDivideLine();
+    }
+
+    public void hideDivideLine(){
+        view_divide_line.setVisibility(View.GONE);
     }
 }
