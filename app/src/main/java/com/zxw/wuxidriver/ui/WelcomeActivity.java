@@ -17,5 +17,12 @@ public class WelcomeActivity extends PresenterActivity<WelcomePresenter> impleme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        showLoading(R.drawable.tool_pb_bg);
+    }
+
+    @Override
+    public void invalid() {
+
     }
 }

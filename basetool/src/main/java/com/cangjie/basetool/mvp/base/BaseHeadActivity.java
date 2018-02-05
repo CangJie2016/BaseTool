@@ -2,6 +2,7 @@ package com.cangjie.basetool.mvp.base;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import com.cangjie.basetool.BaseToolStyle;
 import com.cangjie.basetool.R;
 import com.cangjie.basetool.utils.AnimationHelper;
 
+import static android.R.string.no;
 import static com.cangjie.basetool.R.id.iv_base_head_back;
 
 
@@ -36,6 +39,7 @@ public abstract class BaseHeadActivity extends BaseActivity {
     private ImageButton ib_base_head_right_button;
     private TextView tv_base_head_right_button;
     private View view_divide_line;
+    private ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +79,27 @@ public abstract class BaseHeadActivity extends BaseActivity {
     public void showLoading() {
         mLoading.setVisibility(View.VISIBLE);
     }
+
+    /**
+     *
+     * @param backgroundRes 背景图片资源
+     */
+    public void showLoading(@DrawableRes int backgroundRes) {
+        mProgressBar.setBackground(mContext.getResources().getDrawable(backgroundRes));
+        showLoading();
+    }
+
+    /**
+     *
+     * @param backgroundRes 背景图片资源
+     * @param drawableRes 外部旋转图片资源
+     */
+    public void showLoading(@DrawableRes int backgroundRes, @DrawableRes int drawableRes) {
+        mProgressBar.setIndeterminateDrawable(mContext.getResources().getDrawable(drawableRes));
+        showLoading(backgroundRes);
+    }
+
+
 
     public void hideLoading() {
         AnimationHelper.crossfade(mLoading, rel_contentArea, getResources().getInteger(android.R.integer.config_shortAnimTime));
@@ -137,6 +162,7 @@ public abstract class BaseHeadActivity extends BaseActivity {
 
 
         mLoading = (RelativeLayout) findViewById(R.id.rel_base_loading);
+        mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         rel_base_headArea = (RelativeLayout) findViewById(R.id.rel_base_headArea);
 
         view_divide_line = findViewById(R.id.view_divide_line);

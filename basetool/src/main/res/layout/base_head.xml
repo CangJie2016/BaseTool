@@ -27,6 +27,7 @@
             android:layout_height="match_parent"
             android:visibility="gone" >
             <ProgressBar
+                android:id="@+id/progress_bar"
                 style="@style/myProgressBarStyleLarge"
                 android:layout_width="63dp"
                 android:layout_height="63dp"

@@ -29,4 +29,6 @@ public abstract class PresenterActivity<P> extends BaseHeadActivity {
                     Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS}, 100);
         }
     }
+
+    public void invalid(){}
 }
