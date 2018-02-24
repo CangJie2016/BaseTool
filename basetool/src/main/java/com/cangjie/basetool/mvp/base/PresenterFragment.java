@@ -21,4 +21,6 @@ public abstract class PresenterFragment<P> extends BaseHeadFragment {
 
 
     protected abstract P createPresenter();
+
+    public void invalid(){}
 }
