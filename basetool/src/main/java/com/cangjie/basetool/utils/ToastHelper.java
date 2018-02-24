@@ -3,6 +3,7 @@ package com.cangjie.basetool.utils;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.cangjie.basetool.BaseTool;
 
 
 public class ToastHelper {
@@ -32,7 +33,7 @@ public class ToastHelper {
             }
             mToast.show();
     }
-//    public static void showToast(String text){
-//        showToast(text, MyApplication.mContext);
-//    }
+    public static void showToast(String text){
+        showToast(text, BaseTool.mContext);
+    }
 }

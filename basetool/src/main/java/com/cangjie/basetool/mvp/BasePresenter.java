@@ -5,13 +5,15 @@ import android.content.Context;
 
 import com.cangjie.basetool.utils.SpUtils;
 
+import static com.cangjie.basetool.BaseTool.mContext;
+
 /**
  * author：CangJie on 2016/8/18 14:38
  * email：cangjie2016@gmail.com
  */
 public class BasePresenter<V extends BaseView> {
     public V mvpView;
-    private Context mContext;
+    protected Context mContext;
 
     public BasePresenter(V mvpView, Context context) {
         this.mvpView = mvpView;
