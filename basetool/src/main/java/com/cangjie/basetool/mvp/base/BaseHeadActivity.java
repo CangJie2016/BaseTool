@@ -102,6 +102,8 @@ public abstract class BaseHeadActivity extends BaseActivity {
 
 
     public void hideLoading() {
+        if (isFinishing() || isDestroyed())
+            return;
         AnimationHelper.crossfade(mLoading, rel_contentArea, getResources().getInteger(android.R.integer.config_shortAnimTime));
     }
 

@@ -4,6 +4,7 @@ package com.cangjie.basetool.mvp.base;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -97,7 +98,8 @@ public class BaseHeadFragment extends BaseFragment {
     }
 
     public void hideLoading() {
-        AnimationHelper.crossfade(mLoading, rel_contentArea, getResources().getInteger(android.R.integer.config_shortAnimTime));
+        if (isDetached())
+            AnimationHelper.crossfade(mLoading, rel_contentArea, getResources().getInteger(android.R.integer.config_shortAnimTime));
     }
 
     public void showBackButton() {

@@ -22,18 +22,24 @@ public class ToastHelper {
     }
 
     public static void showToast(String text, Context context) {
-            if (mToast == null) {
-                if(context == null){
-                    return;
-                }
-                mToast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-            } else {
-                mToast.setText(text);
-                mToast.setDuration(Toast.LENGTH_SHORT);
+        if (mToast == null) {
+            if (context == null) {
+                return;
             }
-            mToast.show();
+            mToast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+        } else {
+            mToast.setText(text);
+            mToast.setDuration(Toast.LENGTH_SHORT);
+        }
+        mToast.show();
     }
-    public static void showToast(String text){
+
+    public static void showToast(String text) {
         showToast(text, BaseTool.mContext);
+    }
+
+    public static void showToast(int resId) {
+        String text = BaseTool.mContext.getString(resId);
+        showToast(text);
     }
 }
