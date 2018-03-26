@@ -98,8 +98,11 @@ public class BaseHeadFragment extends BaseFragment {
     }
 
     public void hideLoading() {
-        if (isDetached())
+        try{
             AnimationHelper.crossfade(mLoading, rel_contentArea, getResources().getInteger(android.R.integer.config_shortAnimTime));
+        }catch (Exception e){
+
+        }
     }
 
     public void showBackButton() {
