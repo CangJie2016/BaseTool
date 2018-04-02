@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.cangjie.basetool.BaseToolStyle;
 import com.cangjie.basetool.R;
 import com.cangjie.basetool.utils.AnimationHelper;
+import com.cangjie.basetool.utils.Connection;
 
 import static android.R.string.no;
 import static com.cangjie.basetool.R.id.iv_base_head_back;
@@ -40,6 +41,7 @@ public abstract class BaseHeadActivity extends BaseActivity {
     private TextView tv_base_head_right_button;
     private View view_divide_line;
     private ProgressBar mProgressBar;
+    private RelativeLayout mNetSituation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +56,19 @@ public abstract class BaseHeadActivity extends BaseActivity {
         // 判断是否有网络
         mContantArea = getLayoutInflater().inflate(layoutResID, rel_contentArea, false);
         setContentView(mContantArea);
+        isBadNetwork();
     }
 
+    public void isBadNetwork(){
+        Connection connection = new Connection();
+        if (connection.isNetworkAvailable(this)) {
+            mNetSituation.setVisibility(View.GONE);
+            mContantArea.setVisibility(View.VISIBLE);
+        }else{
+            mNetSituation.setVisibility(View.VISIBLE);
+            mContantArea.setVisibility(View.GONE);
+        }
+    }
     @Override
     public void setContentView(View view) {
         setContentView(view, view.getLayoutParams());
@@ -168,6 +181,7 @@ public abstract class BaseHeadActivity extends BaseActivity {
         rel_base_headArea = (RelativeLayout) findViewById(R.id.rel_base_headArea);
 
         view_divide_line = findViewById(R.id.view_divide_line);
+        mNetSituation = (RelativeLayout) findViewById(R.id.rl_net_situation);
     }
 
     /**
