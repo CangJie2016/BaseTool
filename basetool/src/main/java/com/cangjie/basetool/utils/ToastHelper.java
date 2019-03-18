@@ -3,8 +3,6 @@ package com.cangjie.basetool.utils;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.cangjie.basetool.BaseTool;
-
 
 public class ToastHelper {
     private static final String TAG = "ToastHelper";
@@ -32,14 +30,5 @@ public class ToastHelper {
             mToast.setDuration(Toast.LENGTH_SHORT);
         }
         mToast.show();
-    }
-
-    public static void showToast(String text) {
-        showToast(text, BaseTool.mContext);
-    }
-
-    public static void showToast(int resId) {
-        String text = BaseTool.mContext.getString(resId);
-        showToast(text);
     }
 }

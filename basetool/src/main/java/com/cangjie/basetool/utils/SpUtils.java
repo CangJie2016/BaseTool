@@ -16,10 +16,6 @@ public class SpUtils {
     private static SharedPreferences sp;
     private final static String CACHE_FILE_NAME = "sp_cache";
 
-    public final static String USER_ID = "userId";
-    public final static String KEYCODE = "keycode";
-    public final static String USER_PHONE = "phone";
-
     private static void initSp(Context mContext, String fileName) {
 
         sp = mContext.getSharedPreferences(fileName, Context.MODE_PRIVATE);
@@ -37,56 +33,5 @@ public class SpUtils {
             initSp(mContext, CACHE_FILE_NAME);
         }
         return sp.getString(key,null);
-    }
-    public static boolean getCacheBoolean(Context mContext, String key){
-        if(sp == null){
-            initSp(mContext, CACHE_FILE_NAME);
-        }
-        return sp.getBoolean(key, false);
-    }
-    public static void setCache(Context mContext, String key, boolean value){
-        if(sp == null){
-            initSp(mContext,CACHE_FILE_NAME);
-        }
-        SharedPreferences.Editor edit = sp.edit();
-        edit.putBoolean(key, value);
-        edit.commit();
-    }
-    public static void logOut(Context mContext){
-        if(sp == null){
-            initSp(mContext, CACHE_FILE_NAME);
-        }
-        SharedPreferences.Editor edit = sp.edit();
-        edit.remove(USER_ID).remove(KEYCODE).commit();
-    }
-    public static void cacheErrorLog(Context mContext, String errorLog, String userPhone){
-        if(sp == null){
-            initSp(mContext,CACHE_FILE_NAME);
-        }
-        SharedPreferences.Editor edit = sp.edit();
-        edit.putString("errorLog",errorLog);
-        edit.putString("errorLogName", userPhone);
-        edit.commit();
-    }
-    public static List<String> getErrorLog(Context mContext){
-        if(sp == null){
-            initSp(mContext,CACHE_FILE_NAME);
-        }
-        List<String> list = new ArrayList<String>();
-        list.add(sp.getString("errorLog", ""));
-        list.add(sp.getString("errorLogName", ""));
-
-        return list;
-    }
-
-    public static boolean isLogin(Context mContext) {
-        if(sp == null){
-            initSp(mContext,CACHE_FILE_NAME);
-        }
-        String userId = sp.getString(USER_ID, "");
-        String keycode = sp.getString(KEYCODE, "");
-        if (TextUtils.isEmpty(userId) || TextUtils.isEmpty(keycode))
-            return false;
-        return true;
     }
 }
